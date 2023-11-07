@@ -5,6 +5,7 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var tokenRouter = require("./routes/token");
 
 var app = express();
 
@@ -18,6 +19,7 @@ app.set("view engine", "html");
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/token", tokenRouter);
 
 app.use((req, res, next) => {
   res.status(404).render("404");
